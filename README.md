@@ -46,8 +46,8 @@ A modern, PyTorch-based application for neural style transfer, offering multiple
 graph TD
     subgraph UserInput [User Input]
         direction LR
-        CLI_Input[CLI Arguments: python -m style_transfer.cli ...]
-        GUI_Input[GUI Interaction: python -m style_transfer.gui]
+        CLI_Input["CLI Arguments: python -m style_transfer.cli ..."]
+        GUI_Input["GUI Interaction: python -m style_transfer.gui"]
     end
 
     UserInput --> MainLogic{Application Core};
@@ -55,34 +55,34 @@ graph TD
     subgraph MainLogic [Application Core Logic]
         direction TB
         ML_Device["1. Device Setup (CUDA/MPS/CPU - MPS if explicit)"];
-        ML_LoadImages[2. Load Content/Style Images];
-        ML_ChooseMethod{3. Choose Method: AdaIN or Johnson};
+        ML_LoadImages["2. Load Content/Style Images"];
+        ML_ChooseMethod{"3. Choose Method: AdaIN or Johnson"};
 
         ML_ChooseMethod -- AdaIN --> AdaIN_Path;
         ML_ChooseMethod -- Johnson --> Johnson_Path;
 
         subgraph AdaIN_Path [AdaIN Pathway]
             direction TB
-            A_Init[3a. Initialise AdaIN Models (Encoder, Decoder)];
-            A_Transfer[3b. Perform AdaIN Style Transfer (alpha, preserve colour)];
-            A_Output[3c. Generate Main Stylised Image];
-            A_GIF_Check{3d. Generate AdaIN GIF?};
-            A_GIF_Check -- Yes --> A_GIF_Gen[3e. Generate Alpha Sequence Frames];
-            A_GIF_Gen --> A_GIF_Create[3f. Create GIF (optional ping-pong)];
-            A_GIF_Create --> A_GIF_Output[AdaIN GIF Output];
+            A_Init["3a. Initialise AdaIN Models (Encoder, Decoder)"];
+            A_Transfer["3b. Perform AdaIN Style Transfer (alpha, preserve colour)"];
+            A_Output["3c. Generate Main Stylised Image"];
+            A_GIF_Check{"3d. Generate AdaIN GIF?"};
+            A_GIF_Check -- Yes --> A_GIF_Gen["3e. Generate Alpha Sequence Frames"];
+            A_GIF_Gen --> A_GIF_Create["3f. Create GIF (optional ping-pong)"];
+            A_GIF_Create --> A_GIF_Output["AdaIN GIF Output"];
             A_GIF_Check -- No --> A_Output;
         end
 
         subgraph Johnson_Path [Johnson Pathway]
             direction TB
-            J_Init[3a. Load Pre-trained Johnson TransformerNetwork];
-            J_Transfer[3b. Perform Johnson Style Transfer];
-            J_Blend[3c. Blend Output with Content (optional)];
-            J_Output[3d. Generate Main Stylised Image];
-            J_GIF_Check{3e. Generate Johnson GIF?};
-            J_GIF_Check -- Yes --> J_GIF_Gen[3f. Generate Interpolated Frames (intensity)];
-            J_GIF_Gen --> J_GIF_Create[3g. Create GIF (optional ping-pong)];
-            J_GIF_Create --> J_GIF_Output[Johnson GIF Output];
+            J_Init["3a. Load Pre-trained Johnson TransformerNetwork"];
+            J_Transfer["3b. Perform Johnson Style Transfer"];
+            J_Blend["3c. Blend Output with Content (optional)"];
+            J_Output["3d. Generate Main Stylised Image"];
+            J_GIF_Check{"3e. Generate Johnson GIF?"};
+            J_GIF_Check -- Yes --> J_GIF_Gen["3f. Generate Interpolated Frames (intensity)"];
+            J_GIF_Gen --> J_GIF_Create["3g. Create GIF (optional ping-pong)"];
+            J_GIF_Create --> J_GIF_Output["Johnson GIF Output"];
             J_GIF_Check -- No --> J_Output;
         end
     end
@@ -91,8 +91,8 @@ graph TD
 
     subgraph Outputs [Outputs]
         direction LR
-        Output_Image[Main Stylised Image (.jpg/.png)]
-        Output_GIF[Animated GIF (.gif) (Optional)]
+        Output_Image["Main Stylised Image (.jpg/.png)"]
+        Output_GIF["Animated GIF (.gif) (Optional)"]
     end
 ```
 
