@@ -54,7 +54,7 @@ graph TD
 
     subgraph MainLogic [Application Core Logic]
         direction TB
-        ML_Device[1. Device Setup (CUDA/MPS/CPU - MPS if explicit)];
+        ML_Device["1. Device Setup (CUDA/MPS/CPU - MPS if explicit)"];
         ML_LoadImages[2. Load Content/Style Images];
         ML_ChooseMethod{3. Choose Method: AdaIN or Johnson};
 
