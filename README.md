@@ -140,8 +140,8 @@ The application can generate animated GIFs showcasing the stylisation process, i
 
 2.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url> # Replace with the actual URL
-    cd <repository-name>            # Replace with the actual directory name
+    git clone https://github.com/Mike-In-The-Cloud/style_transfer.git
+    cd style_transfer
     ```
 
 3.  **Create and activate a virtual environment (recommended):**
